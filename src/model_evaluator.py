@@ -124,7 +124,9 @@ from sklearn.base import RegressorMixin
 from sklearn.metrics import mean_squared_error, r2_score
 
 # Setup logging configuration
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 
 # Abstract Base Class for Model Evaluation Strategy
@@ -197,7 +199,9 @@ class ModelEvaluator:
         logging.info("Switching model evaluation strategy.")
         self._strategy = strategy
 
-    def evaluate(self, model: RegressorMixin, X_test: pd.DataFrame, y_test: pd.Series) -> dict:
+    def evaluate(
+        self, model: RegressorMixin, X_test: pd.DataFrame, y_test: pd.Series
+    ) -> dict:
         """
         Executes the model evaluation using the current strategy.
 

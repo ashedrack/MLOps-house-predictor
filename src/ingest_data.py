@@ -32,7 +32,9 @@ class ZipDataIngestor(DataIngestor):
         if len(csv_files) == 0:
             raise FileNotFoundError("No CSV file found in the extracted data.")
         if len(csv_files) > 1:
-            raise ValueError("Multiple CSV files found. Please specify which one to use.")
+            raise ValueError(
+                "Multiple CSV files found. Please specify which one to use."
+            )
 
         # Read the CSV into a DataFrame
         csv_file_path = os.path.join("extracted_data", csv_files[0])
@@ -50,7 +52,9 @@ class DataIngestorFactory:
         if file_extension == ".zip":
             return ZipDataIngestor()
         else:
-            raise ValueError(f"No ingestor available for file extension: {file_extension}")
+            raise ValueError(
+                f"No ingestor available for file extension: {file_extension}"
+            )
 
 
 # Example usage:

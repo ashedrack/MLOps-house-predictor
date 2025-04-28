@@ -9,13 +9,17 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 # Setup logging configuration
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 
 # Abstract Base Class for Model Building Strategy
 class ModelBuildingStrategy(ABC):
     @abstractmethod
-    def build_and_train_model(self, X_train: pd.DataFrame, y_train: pd.Series) -> RegressorMixin:
+    def build_and_train_model(
+        self, X_train: pd.DataFrame, y_train: pd.Series
+    ) -> RegressorMixin:
         """
         Abstract method to build and train a model.
 
@@ -31,7 +35,9 @@ class ModelBuildingStrategy(ABC):
 
 # Concrete Strategy for Linear Regression using scikit-learn
 class LinearRegressionStrategy(ModelBuildingStrategy):
-    def build_and_train_model(self, X_train: pd.DataFrame, y_train: pd.Series) -> Pipeline:
+    def build_and_train_model(
+        self, X_train: pd.DataFrame, y_train: pd.Series
+    ) -> Pipeline:
         """
         Builds and trains a linear regression model using scikit-learn.
 

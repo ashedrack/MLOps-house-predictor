@@ -5,7 +5,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 # Setup logging configuration
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
 
 # Abstract Base Class for Data Splitting Strategy
 # -----------------------------------------------

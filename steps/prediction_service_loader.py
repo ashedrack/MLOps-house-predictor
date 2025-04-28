@@ -4,7 +4,9 @@ from zenml.integrations.mlflow.services import MLFlowDeploymentService
 
 
 @step(enable_cache=False)
-def prediction_service_loader(pipeline_name: str, step_name: str) -> MLFlowDeploymentService:
+def prediction_service_loader(
+    pipeline_name: str, step_name: str
+) -> MLFlowDeploymentService:
     """Get the prediction service started by the deployment pipeline"""
 
     # get the MLflow model deployer stack component

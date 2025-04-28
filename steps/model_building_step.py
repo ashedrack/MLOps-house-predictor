@@ -27,7 +27,9 @@ model = Model(
 @step(enable_cache=False, experiment_tracker=experiment_tracker.name, model=model)
 def model_building_step(
     X_train: pd.DataFrame, y_train: pd.Series
-) -> Annotated[Pipeline, ArtifactConfig(name="sklearn_pipeline", is_model_artifact=True)]:
+) -> Annotated[
+    Pipeline, ArtifactConfig(name="sklearn_pipeline", is_model_artifact=True)
+]:
     """
     Builds and trains a Linear Regression model using scikit-learn wrapped in a pipeline.
 
@@ -69,7 +71,9 @@ def model_building_step(
     )
 
     # Define the model training pipeline
-    pipeline = Pipeline(steps=[("preprocessor", preprocessor), ("model", LinearRegression())])
+    pipeline = Pipeline(
+        steps=[("preprocessor", preprocessor), ("model", LinearRegression())]
+    )
 
     # Start an MLflow run to log the model training process
     if not mlflow.active_run():
@@ -85,7 +89,9 @@ def model_building_step(
 
         # Log the columns that the model expects
         onehot_encoder = (
-            pipeline.named_steps["preprocessor"].transformers_[1][1].named_steps["onehot"]
+            pipeline.named_steps["preprocessor"]
+            .transformers_[1][1]
+            .named_steps["onehot"]
         )
         onehot_encoder.fit(X_train[categorical_cols])
         expected_columns = numerical_cols.tolist() + list(

@@ -4,7 +4,9 @@ from abc import ABC, abstractmethod
 import pandas as pd
 
 # Setup logging configuration
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 
 # Abstract Base Class for Missing Value Handling Strategy
@@ -46,7 +48,9 @@ class DropMissingValuesStrategy(MissingValueHandlingStrategy):
         Returns:
         pd.DataFrame: The DataFrame with missing values dropped.
         """
-        logging.info(f"Dropping missing values with axis={self.axis} and thresh={self.thresh}")
+        logging.info(
+            f"Dropping missing values with axis={self.axis} and thresh={self.thresh}"
+        )
         df_cleaned = df.dropna(axis=self.axis, thresh=self.thresh)
         logging.info("Missing values dropped.")
         return df_cleaned
@@ -94,7 +98,9 @@ class FillMissingValuesStrategy(MissingValueHandlingStrategy):
         elif self.method == "constant":
             df_cleaned = df_cleaned.fillna(self.fill_value)
         else:
-            logging.warning(f"Unknown method '{self.method}'. No missing values handled.")
+            logging.warning(
+                f"Unknown method '{self.method}'. No missing values handled."
+            )
 
         logging.info("Missing values filled.")
         return df_cleaned

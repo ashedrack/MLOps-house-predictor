@@ -8,7 +8,9 @@ from zenml import step
 
 
 @step
-def handle_missing_values_step(df: pd.DataFrame, strategy: str = "mean") -> pd.DataFrame:
+def handle_missing_values_step(
+    df: pd.DataFrame, strategy: str = "mean"
+) -> pd.DataFrame:
     """Handles missing values using MissingValueHandler and the specified strategy."""
 
     if strategy == "drop":

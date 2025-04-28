@@ -6,7 +6,10 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, OneHotEncoder, StandardScaler
 
 # Setup logging configuration
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
 
 # Abstract Base Class for Feature Engineering Strategy
 # ----------------------------------------------------
@@ -155,7 +158,9 @@ class OneHotEncoding(FeatureEngineeringStrategy):
             self.encoder.fit_transform(df[self.features]),
             columns=self.encoder.get_feature_names_out(self.features),
         )
-        df_transformed = df_transformed.drop(columns=self.features).reset_index(drop=True)
+        df_transformed = df_transformed.drop(columns=self.features).reset_index(
+            drop=True
+        )
         df_transformed = pd.concat([df_transformed, encoded_df], axis=1)
         logging.info("One-hot encoding completed.")
         return df_transformed

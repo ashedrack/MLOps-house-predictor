@@ -136,4 +136,4 @@ jobs:
     - name: Check for dependency vulnerabilities
       run: |
         pip install safety
-        safety check
+        safety scan

@@ -27,16 +27,25 @@ def ml_pipeline():
 
     # Feature Engineering Step
     engineered_data = feature_engineering_step(
-        filled_data, 
-        strategy="standard_scaling", 
-        features=["Gr Liv Area", "SalePrice", "Lot Area", "Overall Qual", "Total Bsmt SF", "1st Flr SF"]
+        filled_data,
+        strategy="standard_scaling",
+        features=[
+            "Gr Liv Area",
+            "SalePrice",
+            "Lot Area",
+            "Overall Qual",
+            "Total Bsmt SF",
+            "1st Flr SF",
+        ],
     )
 
     # Outlier Detection Step
     clean_data = outlier_detection_step(engineered_data, column_name="SalePrice")
 
     # Data Splitting Step
-    X_train, X_test, y_train, y_test = data_splitter_step(clean_data, target_column="SalePrice")
+    X_train, X_test, y_train, y_test = data_splitter_step(
+        clean_data, target_column="SalePrice"
+    )
 
     # Model Building Step
     model = model_building_step(X_train=X_train, y_train=y_train)

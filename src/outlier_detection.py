@@ -7,7 +7,10 @@ import pandas as pd
 import seaborn as sns
 
 # Setup logging configuration
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
 
 # Abstract Base Class for Outlier Detection Strategy
 class OutlierDetectionStrategy(ABC):
@@ -63,16 +66,22 @@ class OutlierDetector:
         logging.info("Executing outlier detection strategy.")
         return self._strategy.detect_outliers(df)
 
-    def handle_outliers(self, df: pd.DataFrame, method="remove", **kwargs) -> pd.DataFrame:
+    def handle_outliers(
+        self, df: pd.DataFrame, method="remove", **kwargs
+    ) -> pd.DataFrame:
         outliers = self.detect_outliers(df)
         if method == "remove":
             logging.info("Removing outliers from the dataset.")
             df_cleaned = df[(~outliers).all(axis=1)]
         elif method == "cap":
             logging.info("Capping outliers in the dataset.")
-            df_cleaned = df.clip(lower=df.quantile(0.01), upper=df.quantile(0.99), axis=1)
+            df_cleaned = df.clip(
+                lower=df.quantile(0.01), upper=df.quantile(0.99), axis=1
+            )
         else:
-            logging.warning(f"Unknown method '{method}'. No outlier handling performed.")
+            logging.warning(
+                f"Unknown method '{method}'. No outlier handling performed."
+            )
             return df
 
         logging.info("Outlier handling completed.")

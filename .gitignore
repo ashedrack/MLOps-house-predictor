@@ -1,0 +1,120 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.env
+.venv
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.project
+.pydevproject
+.settings/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# MLflow
+mlruns/
+mlartifacts/
+outputs/
+
+# Data
+data/*.zip
+extracted_data/*.csv
+*.csv
+*.xlsx
+*.xls
+*.pkl
+*.h5
+*.hdf5
+
+# Logs and temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Analysis and documentation drafts
+analysis/
+explanations/
+docs/_build/
+*.pdf
+*.doc
+*.docx
+
+# Model artifacts and checkpoints
+*.model
+*.weights
+*.pt
+*.pth
+*.ckpt
+*.pb
+saved_models/
+
+# Configuration and sensitive files
+.env*
+*.key
+secrets.yaml
+credentials.json
+
+# Cache and temporary directories
+.cache/
+tmp/
+temp/
+.pytest_cache/
+
+# Streamlit
+.streamlit/
+
+# ZenML
+.zen/
+zenml.config
+zenml_local_store/
+
+# Deployment
+*.tfstate
+*.tfstate.backup
+.terraform/
+node_modules/
+*.tfvars
+
+# System-specific
+desktop.ini
+.directory
+*~
+
+# Custom project files to ignore
+sample_predict.py
+run_deployment.py

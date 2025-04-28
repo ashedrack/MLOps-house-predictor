@@ -19,14 +19,14 @@ statsmodels>=0.14.1
 streamlit>=1.32.0
 
 # Security fixes for dependencies
-certifi>=2024.7.4
-cryptography>=42.0.5
-idna>=3.7
-jinja2>=3.1.6
-pyjwt>=2.10.1
-requests>=2.32.2
-setuptools>=70.0.0
-urllib3>=2.2.1
-twisted>=24.7.0
-configobj>=5.0.9
+certifi>=2024.2.2
+cryptography>=41.0.7
+idna>=3.6
+jinja2>=3.1.2
+pyjwt>=2.9.0
+requests>=2.31.0
+setuptools>=69.0.3
+urllib3>=2.0.7
+twisted>=23.10.0
+configobj>=5.0.8
 click>=8.1.7
